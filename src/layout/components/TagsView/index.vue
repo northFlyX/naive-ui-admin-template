@@ -296,6 +296,7 @@
         () => route.fullPath,
         (to) => {
           if (whiteList.includes(route.name as string)) return;
+          if(route.meta.hidden) return;
           state.activeKey = to;
           tabsViewStore.addTabs(getSimpleRoute(route));
           updateNavScroll(true);
